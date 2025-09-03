@@ -1,10 +1,19 @@
 ﻿public class WarHorse
 {
-    // Programa principal
     public static void Main()
     {   
-        Console.WriteLine("Ingrese ubicacion de los caballos");
+        Console.Write("Ingrese ubicacion de los caballos: "); 
         string ubicacion = Console.ReadLine()!;
+        
+        Console.Write("¿Desea iniciar la partida? ([S]i o [N]n):");
+        string respuesta = Console.ReadLine()!.Trim().ToLower();
+
+        if (respuesta != "s")
+        {
+            Console.WriteLine("Partida cancelada.");
+            return;
+        }
+
         string[] cab = ubicacion.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         int n = cab.Length;
         int[,] tab = new int[8, 8];
